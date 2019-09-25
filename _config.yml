@@ -56,7 +56,12 @@ appearance:
   # Uses an architecture called "base16" (https://github.com/chriskempson/base16),
   # the default theme is a customized Atelier Dune Light theme,
   # please feel free to explore more.
-  highlight:
+  highlight: [
+    '#263238', '#2c393f', '#37474f', '#707880',
+    '#c9ccd3', '#cdd3de', '#d5dbe5', '#ffffff',
+    '#ec5f67', '#ea9560', '#ffcc00', '#8bd649',
+    '#80cbc4', '#89ddff', '#82aaff', '#ec5f67'
+  ] # Materia
 
   # Default Light by Chris Kempson (http://chriskempson.com)
   # highlight: [
@@ -89,26 +94,27 @@ profile:
   email:
 
   # You can set Avatar URL directly
-  # avatar:
+  avatar: /static/avatar.jpg
 
   bio: Awesome guy.
 
 # Sidebar navigation links
 menu:
   Home: /
-  # About: /about
-  # Links: /links
-  # Github: https://github.com/username
+  Search: /search
+  Github: https://github.com/YuxinZhaozyx
+  Links: /links
+  About: /about
 
 # Social media URL
 # Try to sort by changing the order of the keys
 sns:
   # `email` will fallback to `profile.email` if not specified
-  email:
+  email: 1322032296@qq.com
   # If you use hexo-generator-feed, `sns.feed` can be left blank
   # and the theme will try to get `hexo.config.feed.path`.
   feed:
-  github:
+  github: http://github.com/YuxinZhaozyx
   twitter:
   facebook:
   instagram:
@@ -180,18 +186,18 @@ category:
 # Search
 search:
   # Display a quick search button in fab
-  # fab: true
+  fab: true
 
   # Render a standalone searh page which can be configured in sidebar menu such as `Search: /search`
-  # page: true
+  page: true
 
-  # Local search
-  # adapter:
-  #   range:
-  #     - post
-  #     - page
-  #   per_page: 20
-  #   limit: 10000
+  #Local search
+  adapter:
+    range:
+      - post
+      - page
+    per_page: 20
+    limit: 10000
 
   # Custom search
   # adapter:
@@ -247,7 +253,7 @@ toc:
 # Reward
 reward:
   # Text which shows at the top.
-  # text: Buy me a cup of coffee ☕.
+  text: Buy me a cup of coffee ☕.
 
   # Payment Methods
   # qrcode, url and text must be set at least one
@@ -259,15 +265,26 @@ reward:
   #     url: https://paypal.me/imelmore
   #     text: This is a paypal payment link
   #     color: '#09bb07'
+  methods:
+    - name: wechat
+      qrcode: /static/QR-code/wechat.png
+      url: 
+      text: This is a wechat pay QRcode
+      color: '#09bb07'
+    - name: alipay
+      qrcode: /static/QR-code/alipay.jpg
+      url: 
+      text: This is an alipay QRcode
+      color: '#019fe8'
 
 # Copyright notice
 # It is possible to use front matter `copyright` to override this setting.
 copyright:
   # Display author, default to `true`
-  # author: true
+  author: true
 
   # Display link, default to `true`
-  # link: false
+  link: true
 
   # license: Attribution-NonCommercial-NoDerivatives 4.0 International
   #   (<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"
@@ -384,7 +401,7 @@ pwa:
 # ```bash
 # npm install babel-core babel-preset-env html-minifier uglify-js --save
 # ```
-# plugins:
+plugins:
 #   # Dynamic inject html snippet
 #   - position: # `sidebar` | `post` | `page` | `comments` | `avatar`, can be an array
 
@@ -436,3 +453,22 @@ pwa:
 #         }
 #     # Or a path relative to theme folder
 #     code: snippets/mycss.css
+
+#  gitalk
+  - //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css
+  - //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
+  - position: comments
+    template: |
+      <div id="gitalk"></div>
+      <script>
+        if (!window.__gitalk) window.__gitalk = new Gitalk({
+          clientID: 'ec5806c0144b70a1b32e',
+          clientSecret: 'aadae41a3747ffa5b36fd0e13c7e84026db07e0c',
+          repo: 'YuxinZhaozyx.github.io',
+          owner: 'YuxinZhaozyx',
+          id: decodeURIComponent(location.pathname),
+          admin: ['YuxinZhaozyx']
+        });
+        __gitalk.render('gitalk');
+      </script>
+
