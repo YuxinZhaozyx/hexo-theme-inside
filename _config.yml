@@ -459,9 +459,29 @@ plugins:
   - //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
   - position: comments
     template: |
-      <div id="gitalk"></div>
-      <script>
-        if (!window.__gitalk) window.__gitalk = new Gitalk({
+      <div id="gitalk-container"></div>
+      <script type="text/javascript">
+        render_gitalk = function() {
+          window.__gitalk = new Gitalk({
+            clientID: 'ec5806c0144b70a1b32e',
+            clientSecret: 'aadae41a3747ffa5b36fd0e13c7e84026db07e0c',
+            repo: 'YuxinZhaozyx.github.io',
+            owner: 'YuxinZhaozyx',
+            id: decodeURIComponent(location.pathname),
+            admin: ['YuxinZhaozyx']
+          });
+          __gitalk.render("gitalk-container");
+        };
+        render_gitalk();
+      </script>
+
+  - tag: script
+    type: text/javascript
+    code: |
+      console.log("--hi--");
+      function titleModified() {
+        document.getElementById("gitalk-container").innerHTML = "";
+        window.__gitalk = new Gitalk({
           clientID: 'ec5806c0144b70a1b32e',
           clientSecret: 'aadae41a3747ffa5b36fd0e13c7e84026db07e0c',
           repo: 'YuxinZhaozyx.github.io',
@@ -469,6 +489,26 @@ plugins:
           id: decodeURIComponent(location.pathname),
           admin: ['YuxinZhaozyx']
         });
-        __gitalk.render('gitalk');
-      </script>
+        __gitalk.render("gitalk-container");
+      }
+      window.onload = function() {
+          var titleEl = document.getElementsByTagName("title")[0];
+          var docEl = document.documentElement;
 
+          if (docEl && docEl.addEventListener) {
+              docEl.addEventListener("DOMSubtreeModified", function(evt) {
+                  var t = evt.target;
+                  if (t === titleEl || (t.parentNode && t.parentNode === titleEl)) {
+                      titleModified();
+                  }
+              }, false);
+          } else {
+              document.onpropertychange = function() {
+                  if (window.event.propertyName == "title") {
+                      titleModified();
+                  }
+              };
+          }
+      };
+            
+      
