@@ -461,25 +461,13 @@ plugins:
     template: |
       <div id="gitalk-container"></div>
       <script type="text/javascript">
-        render_gitalk = function() {
-          window.__gitalk = new Gitalk({
-            clientID: 'ec5806c0144b70a1b32e',
-            clientSecret: 'aadae41a3747ffa5b36fd0e13c7e84026db07e0c',
-            repo: 'YuxinZhaozyx.github.io',
-            owner: 'YuxinZhaozyx',
-            id: decodeURIComponent(location.pathname),
-            admin: ['YuxinZhaozyx']
-          });
-          __gitalk.render("gitalk-container");
-        };
-        render_gitalk();
+        renderGitalk();
       </script>
 
   - tag: script
     type: text/javascript
     code: |
-      console.log("--hi--");
-      function titleModified() {
+      function renderGitalk() {
         document.getElementById("gitalk-container").innerHTML = "";
         window.__gitalk = new Gitalk({
           clientID: 'ec5806c0144b70a1b32e',
@@ -487,9 +475,22 @@ plugins:
           repo: 'YuxinZhaozyx.github.io',
           owner: 'YuxinZhaozyx',
           id: decodeURIComponent(location.pathname),
-          admin: ['YuxinZhaozyx']
+          admin: ['YuxinZhaozyx'],
+          distractionFreeMode: false,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          enableHotKey: true,
+          flipMoveOptions: {
+            staggerDelayBy: 150,
+            appearAnimation: 'elevator',
+            enterAnimation: 'elevator',
+            leaveAnimation: 'elevator',
+          },
         });
         __gitalk.render("gitalk-container");
+      }
+      function titleModified() {
+        renderGitalk();
       }
       window.onload = function() {
           var titleEl = document.getElementsByTagName("title")[0];
