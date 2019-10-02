@@ -5,7 +5,7 @@
 # Appearance
 appearance:
   # Accent color, default '#2a2b33'
-  accent_color:
+  accent_color: '#673AB7'
   # Font color, default '#363636'
   foreground_color:
   # Border color, default '#e0e0e0'
@@ -13,7 +13,7 @@ appearance:
   # body background, default '#f5f7fa'
   background:
   # Sidebar background (when opened), default to accent_color
-  sidebar_background:
+  sidebar_background: '#673AB7'
   # Card background, default '#fff'
   card_background:
 
@@ -173,15 +173,15 @@ post:
 
 # Archive
 archive:
-  # per_page: 10
+  per_page: 20
 
 # Tag
 tag:
-  # per_page: 10
+  per_page: 20
 
 # Category
 category:
-  # per_page: 10
+  per_page: 20
 
 # Search
 search:
