@@ -642,3 +642,13 @@ plugins:
         white-space: nowrap;
         font-size: 13px;
       }
+
+# custom siderbar style
+  - tag: style
+    code: |
+      header.dq.z {
+          background: transparent;
+      }
+      .ee.z {
+          background: transparent;
+      }
