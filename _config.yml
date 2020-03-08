@@ -11,7 +11,7 @@ appearance:
   # Border color, default '#e0e0e0'
   border_color: '#6C49B8' #'#A593E0'
   # body background, default '#f5f7fa'
-  background:  'linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)'
+  background:  'bottom/cover no-repeat url(/static/background.jpg) #fbffde'
   # Sidebar background (when opened), default to accent_color
   sidebar_background: '#673AB7'
   # Card background, default '#fff'
