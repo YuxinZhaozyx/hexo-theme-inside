@@ -549,7 +549,7 @@ plugins:
         overflow: hidden;
         margin: 20px 7px;
         padding: 0;
-        width: calc(100% / 2 - 14px);
+        width: 256px;
         height: 90px;
         border-radius: 8px;
         list-style: none;
