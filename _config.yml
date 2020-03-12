@@ -144,6 +144,10 @@ footer:
   # Custom text.
   # custom: Hosted by <a target="_blank" rel="external nofollow"
   #   href="https://pages.github.com/"><b>Github Pages</b></a>
+   
+  custom: |
+    <span id="busuanzi_container_site_pv" style='display:none'> 👁️‍🗨️ <span id="busuanzi_value_site_pv"></span></span> 
+    <span id="busuanzi_container_site_uv" style='display:none'> 👤 <span id="busuanzi_value_site_uv"></span></span>
 
 
 # ---------------------------------------------------------------
@@ -652,3 +656,8 @@ plugins:
       .ee.z {
           background: transparent;
       }
+
+# busuanzi
+  - tag: script
+    src: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+    defer: true
