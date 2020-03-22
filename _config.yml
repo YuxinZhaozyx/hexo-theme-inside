@@ -277,7 +277,7 @@ reward:
       text: This is a wechat pay QRcode
       color: '#09bb07'
     - name: alipay
-      qrcode: /static/QR-code/alipay.jpg
+      qrcode: /static/QR-code/alipay.png
       url: 
       text: This is an alipay QRcode
       color: '#019fe8'
