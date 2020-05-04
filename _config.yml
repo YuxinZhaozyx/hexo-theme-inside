@@ -383,6 +383,29 @@ pwa:
   #     - name: json
   #       strategy: cacheFirst
   #       regex: your_data_prefix/.*\\.json
+  workbox:
+    # Workbox cdn, uses google by default, below is an example of using alicdn
+    cdn: https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js
+    module_path_prefix: https://g.alicdn.com/kg/workbox/3.3.0/
+    # Expire time in hour, 4 by default, set to 0 to be permanent,
+    # caches will be forcibly deleted the next time the site is updated.
+    expire: 4
+    # The worker script name, `sw.js` by default
+    name: sw.js
+    # Custom rules
+    rules:
+      - name: jsdelivr
+        strategy: staleWhileRevalidate
+        regex: https://cdn\\.jsdelivr\\.net
+      - name: gtm
+        strategy: staleWhileRevalidate
+        regex: https://www\\.googletagmanager\\.com\?id=.*
+      - name: gravatar
+        strategy: staleWhileRevalidate
+        regex: https://www\\.gravatar\\.com
+      - name: theme
+        strategy: staleWhileRevalidate
+        regex: /.*\\.(?:js|css|woff2|png|jpg|gif)$
 
   # manifest.json
   # manifest:
@@ -398,6 +421,21 @@ pwa:
   #     - src: icon-144x144.png
   #       sizes: 144x144
   #       type: image/png
+
+  # manifest.json
+  manifest:
+    short_name: YuxinZhao Blog
+    name: YuxinZhao Blog
+    start_url: /
+    theme_color: '#fbffde'
+    background_color: '#fbffde'
+    icons:
+      - src: /static/avatar.jpg
+        sizes: 194x194 512x512
+        type: image/png
+      - src: /static/avatar.jpg
+        sizes: 144x144
+        type: image/png
 
 # Plugins
 # Inject html snippet to a specified position, Or global inject scripts/styles.
