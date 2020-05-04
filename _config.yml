@@ -340,7 +340,7 @@ data_dir:
 
 # Favicon, default to `favicon.ico`
 favicon:
-
+  /static/icon.png
 # Google analytics
 # ga: UA-00000000-0
 
@@ -430,10 +430,10 @@ pwa:
     theme_color: '#fbffde'
     background_color: '#fbffde'
     icons:
-      - src: /static/avatar.jpg
+      - src: /static/icon.png
         sizes: 194x194 512x512
         type: image/png
-      - src: /static/avatar.jpg
+      - src: /static/icon.png
         sizes: 144x144
         type: image/png
 
