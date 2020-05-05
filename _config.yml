@@ -389,7 +389,7 @@ pwa:
     module_path_prefix: https://g.alicdn.com/kg/workbox/3.3.0/
     # Expire time in hour, 4 by default, set to 0 to be permanent,
     # caches will be forcibly deleted the next time the site is updated.
-    expire: 4
+    expire: 0.05
     # The worker script name, `sw.js` by default
     name: sw.js
     # Custom rules
